@@ -8,15 +8,14 @@ import { Component } from '@angular/core';
   styleUrl: './product-list.component.css',
 })
 export class ProductListComponent {
-  // name: string = 'Iphone 13';
-  // price: number = 999;
-  // color: string = 'Red';
+  name = 'John Doe';
   product = {
     name: 'Iphone X',
     price: 789,
     color: 'Black',
     discount: 8.5,
     inStock: 5,
+    pImage: '/assets/images/iphone.png',
   };
 
   getDiscountedPrice() {

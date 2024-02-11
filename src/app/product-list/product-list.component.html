@@ -1,5 +1,13 @@
+<!-- <img src={{product.pImage}}> -->
+<img [src]="product.pImage">
 <p>Name: {{ product.name }}</p>
 <p>Price: ${{ '$' + product.price }}</p>
 <p>Color: {{ product.color }}</p>
 <p>Discounted Price: {{ getDiscountedPrice().toFixed(2) }}</p>
 <p>{{product.inStock > 0 ? 'Only' + ' ' +  product.inStock + ' ' + 'items left': 'Not in Stock'}}</p>
+
+<!-- Disabled, Hidden, Checked -->
+<button [disabled]="!(product.inStock > 0)">By Now</button>
+<!-- <button bind-disabled="!(product.inStock > 0)">By Now</button> -->
+<input [value]="name" [attr.aria-hidden]="">
+<!-- <input bind-value="name"> -->
