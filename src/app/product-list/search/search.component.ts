@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [FormsModule],
   templateUrl: './search.component.html',
   styleUrl: './search.component.css',
 })
@@ -13,12 +13,9 @@ export class SearchComponent {
   // updateSearchText(event: any) {
   //   this.searchText = event.target.value;
   // }
-  searchText = new FormControl('');
+  searchText: string = 'Mens wear';
 
-  constructor() {
-    this.searchText.valueChanges.subscribe((value) => {
-      console.log(this.searchText);
-      console.log(value); // Выводим значение в консоль
-    });
+  updateSearchText(event: any) {
+    this.searchText = event.target.value;
   }
 }
