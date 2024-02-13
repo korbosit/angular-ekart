@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'app-search',
   standalone: true,
@@ -9,12 +10,15 @@ import { CommonModule } from '@angular/common';
   styleUrl: './search.component.css',
 })
 export class SearchComponent {
-  // searchText: string = 'Mens wear';
-
-  // updateSearchText(event: any) {
-  //   this.searchText = event.target.value;
-  // }
   searchText: string = '';
+
+  // 1.Create an event
+  @Output()
+  searchTextChanged: EventEmitter<string> = new EventEmitter<string>();
+
+  onSearchTextChanged() {
+    this.searchTextChanged.emit(this.searchText);
+  }
 
   updateSearchText(event: any) {
     this.searchText = event.target.value;
