@@ -2,11 +2,12 @@ import { Component, Input } from '@angular/core';
 import { CommonModule, NgTemplateOutlet } from '@angular/common';
 import { Product } from '../../Models/Product';
 import { ProductListComponent } from '../product-list/product-list.component';
+import { SetBackground } from '../../CustomDirectives/SetBackground.directive';
 
 @Component({
   selector: 'product-detail',
   standalone: true,
-  imports: [CommonModule, NgTemplateOutlet],
+  imports: [CommonModule, NgTemplateOutlet, SetBackground],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.css',
 })
