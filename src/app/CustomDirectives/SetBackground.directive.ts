@@ -14,6 +14,14 @@ import {
 export class SetBackground implements OnInit {
   // private el: ElementRef;
   // private renderer: Renderer2;
+  // @Input('setBackground') backColor: String = '#36454F';
+  // @Input() textColor: string = 'white';
+  // @Input() title: String = 'My title';
+
+  @Input('setBackground') changeTextAndBackColor: {
+    backColor: string;
+    textColor: string;
+  };
 
   constructor(private el: ElementRef, private renderer: Renderer2) {
     // this.el = el;
@@ -24,12 +32,20 @@ export class SetBackground implements OnInit {
     // this.el.nativeElement.style.backgroundColor = '#36454F';
     // this.el.nativeElement.style.color = 'white';
 
-    this.renderer.setStyle(this.el.nativeElement, 'backgroundColor', '#36454F');
-    this.renderer.setStyle(this.el.nativeElement, 'color', 'yellow');
-    this.renderer.setAttribute(
+    this.renderer.setStyle(
       this.el.nativeElement,
-      'title',
-      'This is example title'
+      'backgroundColor',
+      this.changeTextAndBackColor.backColor
     );
+    this.renderer.setStyle(
+      this.el.nativeElement,
+      'color',
+      this.changeTextAndBackColor.textColor
+    );
+    // this.renderer.setAttribute(
+    //   this.el.nativeElement,
+    //   'title',
+    //   'This is example title'
+    // );
   }
 }
