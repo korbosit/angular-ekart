@@ -4,6 +4,7 @@ import {
   HostListener,
   Input,
   OnInit,
+  Renderer2,
 } from '@angular/core';
 
 @Directive({
@@ -11,28 +12,24 @@ import {
   selector: '[setBackground]',
 })
 export class SetBackground implements OnInit {
-  // export class SetBackground implements OnInit {
-  //   private el = ElementRef;
-  //   constructor(el: ElementRef) {
-  //     this.el = el;
-  //   }
+  // private el: ElementRef;
+  // private renderer: Renderer2;
 
-  constructor(private el: ElementRef) {}
-
-  // @HostListener('mouseenter') onMouseEnter() {
-  //   this.backgroundColor('yellow');
-  // }
-
-  // @HostListener('mouseleave') onMouseLeave() {
-  //   this.backgroundColor('');
-  // }
-
-  // private backgroundColor(color: string) {
-  //   this.el.nativeElement.style.backgroundColor = color;
-  // }
+  constructor(private el: ElementRef, private renderer: Renderer2) {
+    // this.el = el;
+    // this.renderer = renderer;
+  }
 
   ngOnInit() {
-    this.el.nativeElement.style.backgroundColor = '#36454F';
-    this.el.nativeElement.style.color = 'white';
+    // this.el.nativeElement.style.backgroundColor = '#36454F';
+    // this.el.nativeElement.style.color = 'white';
+
+    this.renderer.setStyle(this.el.nativeElement, 'backgroundColor', '#36454F');
+    this.renderer.setStyle(this.el.nativeElement, 'color', 'yellow');
+    this.renderer.setAttribute(
+      this.el.nativeElement,
+      'title',
+      'This is example title'
+    );
   }
 }
